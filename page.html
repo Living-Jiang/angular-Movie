@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+
+    <body>
+    	<script>
+    	 	function getPage(cur,config) {
+    	 		var arr = [];
+    	 		var total = config.total;
+    	 		var showCount = config.showCount; 
+    	 		var start = cur - parseInt(showCount/2);
+    	 		start = start<=0?1:start;
+    	 		var end = start + showCount;
+    	 		end = end > total?total+1:end;
+    	 		start = end - showCount;
+    	 		start = start<=0?1:start;
+    	 		for(var i = start; i < end; i++) {
+    	 			arr.push(i);
+    	 		}
+    	 		return arr;
+    	 	}
+    	</script>
+    </body>
+</html>

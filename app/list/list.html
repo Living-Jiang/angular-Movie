@@ -40,10 +40,20 @@
         <span class="spinner-loader">Loading…</span>
     </div>
 </div>
-<ul class="pager" ng-if="!isLoading">
+<!-- 分页 -->
+<!-- <ul class="pager" ng-if="!isLoading">
     <li ng-class="{disabled:curPage<=1}">
         <a ng-click="changePage(curPage-2)">
             <<上一页</a>
     </li>
     <li ng-class="{disabled:curPage>=page}"><a ng-click="changePage(curPage)">下一页>></a></li>
-</ul>
+</ul> -->
+  <ul class="pagination" ng-if="!isLoading">
+  <li ng-class="{disabled:curPage<=1}"><a ng-click="changePage(0)">First</a></li>
+    <li ng-class="{disabled:curPage<=1}"><a ng-click="changePage(curPage-2)">Prev</a></li>
+    <li ng-repeat="perPage in pageArr" ng-class="{active:perPage==curPage}"><a ng-click="changePage(perPage-1)">{{perPage}}</a></li>
+    
+    <li ng-class="{disabled:curPage>=page}"><a ng-click="changePage(curPage)">Next</a></li>
+    <li ng-class="{disabled:curPage>=page}"><a ng-click="changePage(page-1)">Last</a></li>
+    <li><a class="goPage"><input type="text" ng-model="goPage"></a><a ng-click="changePage(goPage-1)">Go>></a></li>
+  </ul>
