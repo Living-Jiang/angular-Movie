@@ -291,11 +291,11 @@ a {
     position: absolute;
 }
 .goPage {
-  padding:0 !important;
+  padding:0 !important; 
 }
 .goPage input{
   width: 40px;
-  height: 25px;
+  height: 25.5px;
   border:0;
   outline-style: none;
 }

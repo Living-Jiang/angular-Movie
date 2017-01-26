@@ -41,14 +41,14 @@
     </div>
 </div>
 <!-- 分页 -->
-<!-- <ul class="pager" ng-if="!isLoading">
+<ul class="pager visible visible-xs visible-sm" ng-if="!isLoading">
     <li ng-class="{disabled:curPage<=1}">
         <a ng-click="changePage(curPage-2)">
             <<上一页</a>
     </li>
     <li ng-class="{disabled:curPage>=page}"><a ng-click="changePage(curPage)">下一页>></a></li>
-</ul> -->
-  <ul class="pagination" ng-if="!isLoading">
+</ul>
+  <ul class="pagination hidden-xs hidden-sm" ng-if="!isLoading" >
   <li ng-class="{disabled:curPage<=1}"><a ng-click="changePage(0)">First</a></li>
     <li ng-class="{disabled:curPage<=1}"><a ng-click="changePage(curPage-2)">Prev</a></li>
     <li ng-repeat="perPage in pageArr" ng-class="{active:perPage==curPage}"><a ng-click="changePage(perPage-1)">{{perPage}}</a></li>

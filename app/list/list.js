@@ -49,7 +49,7 @@ angular.module('Movie.list', ['ngRoute', "Movie.Service"])
                 start: $routeParams.page * $scope.showCount,
                 q: $routeParams.q
             },
-            function(data) {
+            function(data,isNotSend) {
                 // 每条电影的数据
                 $scope.datas = data;
                 $scope.isLoading = false;
@@ -64,8 +64,11 @@ angular.module('Movie.list', ['ngRoute', "Movie.Service"])
                 $scope.pageConfig = { totalPage: $scope.page,showPageCount:$scope.showPageCount};
                 $scope.getPage = service.getPage($scope.pageConfig);
                 $scope.pageArr = $scope.getPage($scope.curPage);
-                
-                $scope.$apply();
+
+                //没有发送跨域请求则不需要调用$scope.$apply()；否则会报错
+                if(!isNotSend) {
+                    $scope.$apply();
+                }
             });
     }
 ]);

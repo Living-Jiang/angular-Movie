@@ -20,13 +20,15 @@ angular.module('Movie.detail', ['ngRoute', "Movie.Service"])
     function($scope, service, AppConfig,$route,$routeParams) {
     	$scope.searchSimilar = AppConfig.searchAnchor;
        service.jsonp(AppConfig.detailUrl + $routeParams.id, {},
-            function(data) {
+            function(data,isNotSend) {
                 $scope.datas = data;
                 for(var k in data.genres) {
                 	$scope.searchSimilar += data.genres[k]+" ";
                 }
+                if(!isNotSend) {
+                    $scope.$apply();
+                }
                 
-                $scope.$apply();
             })
     }
 ]);
