@@ -1,0 +1,46 @@
+<div class="jumbotron clearfix">
+    <div class="col-md-6">
+        <img ng-src="{{datas.images.large}}" alt="{{datas.aka[3]}}">
+    </div>
+    <div class="col-md-6">
+        <h2>{{datas.title}}</h2>
+        <p class="text">
+        <span class="col-md-2">评 分：</span>
+        {{datas.rating.average}}
+        </p>
+        <p class="text">
+        <span class="col-md-2">国 家：</span>
+        	{{datas.countries[0]}}
+        </p>
+        <p class="text">
+        <span class="col-md-2">年 份：</span>
+        	{{datas.year}}
+        </p>
+        <p class="text">
+            <span class="col-md-2">类 型：</span>
+            <span class="col-md-10">
+            	<span ng-repeat="type in datas.genres">
+                    {{type}}
+                    </span>
+            </span>
+        </p>
+        <p class="text">
+            <span class="col-md-2">导 演：</span>
+            <span class="col-md-10">
+            <span ng-repeat="d in datas.directors">
+					<span>{{d.name}}<i ng-if="!$last">、</i></span>
+            </span>
+            </span>
+        </p>
+        <p class="text clearfix">
+            <span class="col-md-2">主 演：</span>
+            <span class="col-md-10">
+            <span ng-repeat="cast in datas.casts">
+				<span>{{cast.name}}<i ng-if="!$last">、</i></span>
+            </span>
+            </span>
+        </p>
+        <span class="summary"><p class="pull-left">简 介： </p> {{datas.summary}}</span>
+        <p><a class="btn btn-primary btn-lg" ng-href="{{searchSimilar}}" role="button">Search a similar</a></p>
+    </div>
+</div>

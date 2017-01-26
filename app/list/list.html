@@ -1,0 +1,49 @@
+<h1 class="page-header">{{datas.title}}</h1>
+<ul class="nav nav-pills" role="tablist">
+    <li role="presentation" class="presentation">
+        <a href="{{detail+subject.id}}" ng-repeat="subject in datas.subjects">
+            <div class="media">
+                <div class="media-left media-middle">
+                    <img class="media-object" ng-src="{{subject.images.small}}" alt="{{subject.alt}}">
+                </div>
+                <div class="media-body">
+                    <h3 class="media-heading">
+                    {{subject.title}}
+                    <span class="badge pull-right">{{subject.rating.average}}</span>
+                    </h3>
+                    <span>类型：<span ng-repeat="type in subject.genres">
+                    {{type}}
+                    </span>
+                    </span>
+                    <span class="leftpadding">上映年份：<span>{{subject.year}}</span></span>
+                    <p>
+                        导演：
+                        <span ng-repeat="d in subject.directors">
+							<span>{{d.name}}<i ng-if="!$last">、</i></span>
+                        </span>
+                    </p>
+                    <p>
+                        主演：
+                        <span ng-repeat="cast in subject.casts">
+							<span>{{cast.name}}<i ng-if="!$last">、</i></span>
+                        </span>
+                    </p>
+                </div>
+            </div>
+        </a>
+    </li>
+</ul>
+<span>总共：{{total}}记录,共{{curPage}}/{{page}}页</span>
+<!-- 加载动画 -->
+<div class="mask" ng-if="isLoading">
+    <div class="spinner">
+        <span class="spinner-loader">Loading…</span>
+    </div>
+</div>
+<ul class="pager" ng-if="!isLoading">
+    <li ng-class="{disabled:curPage<=1}">
+        <a ng-click="changePage(curPage-2)">
+            <<上一页</a>
+    </li>
+    <li ng-class="{disabled:curPage>=page}"><a ng-click="changePage(curPage)">下一页>></a></li>
+</ul>
