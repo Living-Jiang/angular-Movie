@@ -22,7 +22,6 @@
                   $scope.$watch('$location.path()', function(now) {
                       $scope.activeItem = now.slice(now.indexOf('') + 1,
                        now.lastIndexOf('/'));
-                  });
-                  
+                  });   
               }
           ]);

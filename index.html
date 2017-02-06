@@ -63,6 +63,14 @@
     <script src="./search.js"></script>
     <script src="./detail/detail.js"></script>
     <script src="./list/list.js"></script>
+    <script>
+    $(".nav li").on("click", function() {
+        $(".navbar-toggle").trigger("click");
+    });
+    $(".submit-btn").on("click", function() {
+        $(".navbar-toggle").trigger("click");
+    });
+    </script>
 </body>
 
 </html>
